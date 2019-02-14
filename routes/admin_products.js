@@ -62,10 +62,10 @@ module.exports = (app) => {
     });
 
     app.patch('/admin/produkt/rediger/:id', (req, res, next) => {
-        if (!req.files.image.name) {
+        if (!req.files.image) {
             db.query(`UPDATE cms.products 
             SET products.name = ?, products.description = ?
-            WHERE products.id = ?;`, [req.fields.name, req.fields.description, req.files.image.name, req.params.id], (err, results) => {
+            WHERE products.id = ?;`, [req.fields.name, req.fields.description, req.files.image, req.params.id], (err, results) => {
                 if (err) res.send(err);
                 res.status(200);
                 res.end();
@@ -90,7 +90,7 @@ module.exports = (app) => {
 
                     db.query(`UPDATE products 
                     SET products.name = ?, products.description = ?, products.image = ?
-                    WHERE products.id = ?;`, [req.fields.name, req.fields.description, req.files.image.name, req.files.price.name, req.params.id], (err, results) => {
+                    WHERE products.id = ?;`, [req.fields.name, req.fields.description, req.files.image, req.files.price.name, req.params.id], (err, results) => {
                         if (err) res.send(err);
                         res.status(200);
                         res.end();
