@@ -1,0 +1,44 @@
+{
+  "name": "cms",
+  "version": "0.1.0",
+  "description": "kodebase for TheodorSimonsen",
+  "main": "server.js",
+  "scripts": {
+    "dev:win32": "set DEBUG:=cms & nodemon -r dotenv/config server.js dotenv_config_path=./.env",
+    "dev:linux": "DEBUG=cms nodemon -r dotenv/config server.js dotenv_config_path=./.env",
+    "dev": "run-script-os",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "set DEBUG:=cms & nodemon -r dotenv/config server.js dotenv_config_path=./.env",
+    "start:linux": "DEBUG=cms nodemon -r dotenv/config server.js dotenv_config_path=./.env"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheodorSimonsen/kodebase-TheodorSimonsen.git"
+  },
+  "author": "Theodor Simonsen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheodorSimonsen/kodebase-TheodorSimonsen/issues"
+  },
+  "homepage": "https://github.com/TheodorSimonsen/kodebase-TheodorSimonsen#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "buffer": "^5.2.1",
+    "dotenv": "^6.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-formidable": "^1.2.0",
+    "express-session": "^1.15.6",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "nodemon": "^1.18.6",
+    "spdy": "^4.0.0"
+  },
+  "devDependencies": {
+    "debug": "^3.2.6",
+    "nodemon": "^1.17.5",
+    "run-script-os": "^1.0.3"
+  }
+}

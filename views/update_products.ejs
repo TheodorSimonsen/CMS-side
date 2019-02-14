@@ -1,0 +1,38 @@
+<% include ./partials/header %>
+
+<form action="/admin/produkt/rediger/<%= mainResults[0].id %>" class="patchForm" enctype="multipart/form-data" id="update_create">
+    <label for="name">Titel</label>
+    <input type="text" name="name" value="<%= mainResults[0].name %>" id="name">
+
+    <label for="description">Beskrivelse</label>
+    <textarea name="description" id="description"><%= mainResults[0].description %></textarea>
+
+    <label for="image">Billede</label>
+    <input type="file" name="image" id="image">
+
+    <button type="submit">Rediger</button>
+</form>
+
+<script>
+    const form = document.querySelector('.patchForm');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        fetch(`/admin/produkt/rediger/${this.id.value}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: form.name.value,
+                    description: form.description.value,
+                    image: form.image.value,
+                })
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    window.location.href = '/admin';
+                }
+            });
+    });
+</script>
+<% include ./partials/footer %>

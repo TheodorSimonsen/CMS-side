@@ -1,0 +1,42 @@
+<% include ./partials/head %>
+<a href="/">Home</a>
+<main id="admin_panel">
+
+    <section class="admin-box">
+        <h1>Produkter</h1>
+        <a href="/admin/produkt/opret">+</a>
+        <% productsResults.forEach(productsResult => { %>
+        <div class="admin-box-selection">
+            <h4><%= productsResult.name %></h4>
+            <img src="./public/uploads/<%= productsResult.image %>" alt="">
+            <a href="/admin/produkt/slet-tjek/<%= productsResult.id %>"><i class="far fa-trash-alt"></i></a>
+            &nbsp;
+            <a href="/admin/produkt/rediger/<%= productsResult.id %>"><i class="fas fa-pencil-alt"></i></a>
+        </div>
+        <hr class="groups_hr">
+        <% }); %>
+    </section>
+
+    <section class="admin-box">
+        <h1>Forside</h1>
+        <% homeResults.forEach(homeResult => { %>
+        <div class="admin-box-selection">
+            <h4>
+                <%= homeResult.title %>
+            </h4>
+        </div>
+        <div class="admin-box-selection">
+            <h4>
+                <%= homeResult.text %>
+            </h4>
+        </div>
+        <div class="admin-box-selection"> <img src="/uploads/<%= homeResult.image %>"></div>
+        <div>
+            <%= homeResult.id %> <button><a href="/admin/home/rediger/<%= homeResult.id %>"><i class="fas fa-pencil-alt"></i></a></button></div>
+        <hr class="groups_hr">
+        <% }); %>
+    </section>
+
+    <div class="clearfix"></div>
+</main>
+<% include ./partials/footer %>

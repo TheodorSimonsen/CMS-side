@@ -1,0 +1,17 @@
+<header>
+    <div id="header-logo"><img src="" alt="logo"></div>
+    <div id="login_logout">
+		<% if (login === false) { %>
+			<a href="/login">Log Ind</a>
+		<% } else { %>
+			<a href="/auth/logout">Log ud</a>
+		<% } %>
+	</div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/contentpage">Products</a></li>
+            <li><a href="/admin">Admin</a></li>
+        </ul>
+    </nav>
+</header>
