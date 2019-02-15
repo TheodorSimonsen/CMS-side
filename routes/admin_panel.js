@@ -33,7 +33,7 @@ module.exports = (app) => {
             db.query(`SELECT styles.id, styles.title FROM styles;`, (err, stylesResults) => {
 
                 //Select Products
-                db.query(`SELECT products.id, products.name, products.image FROM cms.products;`, (err, productsResults) => {
+                db.query(`SELECT products.id, products.name, products.description, products.image FROM cms.products;`, (err, productsResults) => {
 
                     //Select Levels
                     db.query(`SELECT levels.id, levels.title FROM levels;`, (err, levelsResults) => {

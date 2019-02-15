@@ -1,15 +1,20 @@
 <% include ./partials/header %>
 
 <form action="/admin/produkt/rediger/<%= mainResults[0].id %>" class="patchForm" enctype="multipart/form-data" id="update_create">
+    <input type="hidden" name="id" value="<%= mainResults[0].id %>">
+
     <label for="name">Titel</label>
+    <br>
     <input type="text" name="name" value="<%= mainResults[0].name %>" id="name">
-
+    <br>
     <label for="description">Beskrivelse</label>
+    <br>
     <textarea name="description" id="description"><%= mainResults[0].description %></textarea>
-
+    <br>
     <label for="image">Billede</label>
+    <br>
     <input type="file" name="image" id="image">
-
+    <br>
     <button type="submit">Rediger</button>
 </form>
 
@@ -17,6 +22,7 @@
     const form = document.querySelector('.patchForm');
     form.addEventListener('submit', function (event) {
         event.preventDefault();
+        console.log(this.id.value);
         fetch(`/admin/produkt/rediger/${this.id.value}`, {
                 method: 'PATCH',
                 headers: {

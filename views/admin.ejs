@@ -8,6 +8,7 @@
         <% productsResults.forEach(productsResult => { %>
         <div class="admin-box-selection">
             <h4><%= productsResult.name %></h4>
+            <p><%= productsResult.description %></p>
             <img src="./public/uploads/<%= productsResult.image %>" alt="">
             <a href="/admin/produkt/slet-tjek/<%= productsResult.id %>"><i class="far fa-trash-alt"></i></a>
             &nbsp;

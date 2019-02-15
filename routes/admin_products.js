@@ -62,14 +62,25 @@ module.exports = (app) => {
     });
 
     app.patch('/admin/produkt/rediger/:id', (req, res, next) => {
+        console.log(req.params.id);
         if (!req.files.image) {
-            db.query(`UPDATE cms.products 
-            SET products.name = ?, products.description = ?
+
+            /*db.query(`UPDATE cms.products 
+            SET products.name = ?, products.description = ?, products.image = ?
             WHERE products.id = ?;`, [req.fields.name, req.fields.description, req.files.image, req.params.id], (err, results) => {
                 if (err) res.send(err);
                 res.status(200);
                 res.end();
-    });
+            });*/
+
+            db.query(`UPDATE cms.products 
+            SET products.name = ?, products.description = ?, products.image = ?
+            WHERE products.id = ?;`, [req.fields.name, req.fields.description, req.files.image, req.params.id], (err, results) => {
+                if (err) res.send(err);
+                res.status(200);
+                res.end();
+            });
+
         } else {
 
             if (!req.files || !req.files.image) {
