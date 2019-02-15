@@ -1,0 +1,25 @@
+<% include partials/head %>
+<% include partials/header %>
+<h1>
+    <%= home.title %>
+</h1>
+<!-- <img src="./uploads/<%= home.image %>" alt="Content page image">
+<p><%= home.text %></p> -->
+<main id="product-main">
+    <% products.forEach(result =>{ %>
+    <figure class="product">
+
+        <a href="/" class="image">
+            <img src="./uploads/<%= result.image %>" border="0" height="200" alt="produkt id:1 image">
+        </a>
+        <h3 class="product-title">
+            <a href="/"><%= result.name %></a>
+        </h3>
+        <div class="price-container">
+            <div class="price">€ <%= result.price %>.00</div> <a href="/" class="more">+ Se mere</a>
+        </div>
+    </figure>
+    <% }); %>
+</main>
+<% include partials/footer %>
+<% include partials/after-footer %>

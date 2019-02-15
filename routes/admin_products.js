@@ -74,7 +74,7 @@ module.exports = (app) => {
             });*/
 
             db.query(`UPDATE cms.products 
-            SET products.name = ?, products.description = ?, products.image = ?
+                                SET products.name = ?, products.description = ?, products.image = ?
             WHERE products.id = ?;`, [req.fields.name, req.fields.description, req.files.image, req.params.id], (err, results) => {
                 if (err) res.send(err);
                 res.status(200);

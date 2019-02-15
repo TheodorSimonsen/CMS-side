@@ -9,7 +9,7 @@
         <div class="admin-box-selection">
             <h4><%= productsResult.name %></h4>
             <p><%= productsResult.description %></p>
-            <img src="./public/uploads/<%= productsResult.image %>" alt="">
+            <img src="./uploads/<%= productsResult.image %>" height="200" alt="">
             <a href="/admin/produkt/slet-tjek/<%= productsResult.id %>"><i class="far fa-trash-alt"></i></a>
             &nbsp;
             <a href="/admin/produkt/rediger/<%= productsResult.id %>"><i class="fas fa-pencil-alt"></i></a>
@@ -19,7 +19,7 @@
     </section>
 
     <section class="admin-box">
-        <h1>Forside</h1>
+        <h1>Site headers</h1>
         <% homeResults.forEach(homeResult => { %>
         <div class="admin-box-selection">
             <h4>

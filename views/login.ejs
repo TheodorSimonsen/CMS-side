@@ -2,7 +2,7 @@
 <% include partials/header %>
 
 <h1>Login</h1>
-<form action="/auth/login" method="POST" enctype="multipart/form-data">
+<form action="/auth/login" method="POST" enctype="multipart/form-data" class="login">
 	<% if (typeof status != 'undefined') { %>
 		<span class="errorMessage"><%= status %></span>
 	<% } %>
@@ -18,7 +18,7 @@
 			<input type="password" name="password">
 		</label>
 	</div>
-	<button type="submit">Log ind</button> <a href="/opret-bruger">Opret Bruger</a>
+	<button type="submit" class="loginbutton">Log ind</button> <button class="signupbutton"><a href="/opret-bruger">Opret Bruger</a></button>
 </form>
 
 <% include partials/footer %>
