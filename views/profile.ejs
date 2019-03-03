@@ -1,7 +1,9 @@
 <% include partials/head %>
 <% include partials/header %>
 
-<h1><%= title %></h1>
+<h1>
+	<%= title %>
+</h1>
 <form class="profileForm">
 	<div class="inputGroup">
 		<label>
@@ -19,66 +21,65 @@
 	<div class="inputGroup">
 		<label>
 			Fornavn
-			<input type="text" name="firstname" value="<%= user.firstname %>" required >
+			<input type="text" name="firstname" value="<%= user.firstname %>">
 		</label>
 	</div>
 	<div class="inputGroup">
 		<label>
 			Efternavn
-			<input type="text" name="lastname" value="<%= user.lastname %>" required >
+			<input type="text" name="lastname" value="<%= user.lastname %>">
 		</label>
 	</div>
 	<div class="inputGroup">
 		<label>
 			Beskrivelse
-			<textarea name="bio" required ><%= user.bio %></textarea>
+			<textarea name="bio"><%= user.bio %></textarea>
 		</label>
 	</div>
 	<button type="submit">Gem</button>
 </form>
 <script>
-const form = document.querySelector('.profileForm');
-form.addEventListener('submit', function (event) {
-	event.preventDefault();
-	fetch('/profile', {
-		method: 'PATCH',
-		headers: {
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({
-			firstname: this.firstname.value,
-			lastname: this.lastname.value,
-			bio: this.bio.value
-		})
-	})
-		.then(response => {
-			if (response.status === 204) {
-				return response.json();
-			}
-		}).then(data => {
-			/* ??? */
-		})
-});
+	const form = document.querySelector('.profileForm');
+	form.addEventListener('submit', function (event) {
+		event.preventDefault();
+		fetch('/profile', {
+				method: 'PATCH',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					firstname: this.firstname.value,
+					lastname: this.lastname.value,
+					bio: this.bio.value
+				})
+			})
+			.then(response => {
+				if (response.status === 204) {
+					window.location.href = '/profile'
+				}
+			}).then(data => {
+				/* ??? */
+			})
+	});
 
-const file = document.querySelector('.profileFileSelect');
-file.addEventListener('change', function (event) {
-	const formData = new FormData();
-	formData.append('photo', this.files[0]);
-	fetch('/profile/image', {
-		method: 'PATCH',
-		body: formData
-	})
-		.then(response => {
-			if (response.status === 200) return response.js
-	})
-		.then(response => {
-			if (response.status === 200) return response.json();
-		})
-		.then(data => {
-			const img = document.querySelector('.profileImage');
-			img.src = `/uploads/${data.photo}`;
-		});
-});
+	const file = document.querySelector('.profileFileSelect');
+	file.addEventListener('change', function (event) {
+		const formData = new FormData();
+		formData.append('photo', this.files[0]);
+		fetch('/profile/image', {
+				method: 'PATCH',
+				body: formData
+			})
+			.then(response => {
+				if (response.status === 200) {
+					window.location.href = '/profile';
+				};
+			})
+			.then(data => {
+				const img = document.querySelector('.profileImage');
+				img.src = `./uploads/${data.photo}`;
+			});
+	});
 </script>
 
 <% include partials/footer %>

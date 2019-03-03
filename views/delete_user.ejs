@@ -1,0 +1,6 @@
+<% include ./partials/header %>
+<div id="delete_make_sure">
+    <h1>Er du sikker på at du vil slette <span class="maybe_delete"><%= mainResults[0].username %></span></h1>
+    <a href="/admin">Nej</a> <a href="/admin/user/slet/<%= mainResults[0].id %>" class="maybe_delete">Ja</a>
+</div>
+<% include ./partials/footer %>

@@ -1,5 +1,5 @@
-<% include ./partials/head %>
-<% include ./partials/header %>
+<% include partials/head %>
+<% include partials/header %>
 
 <form action="/admin/home/rediger/<%= mainResults[0].id %>" method="POST" enctype="multipart/form-data" id="update_create">
     <label for="name">Navn</label>
@@ -14,4 +14,5 @@
     <button type="submit">Rediger</button>
 </form>
 
-<% include ./partials/footer %>
+<% include partials/footer %>
+<% include partials/after-footer %>

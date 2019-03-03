@@ -30,32 +30,21 @@ module.exports = (app) => {
         db.query(`SELECT * FROM home;`, (err, homeResults) => {
 
             //Select Styles
-            db.query(`SELECT styles.id, styles.title FROM styles;`, (err, stylesResults) => {
+            db.query(`SELECT users.id, users.username, users.password, users.roles_id FROM users;`, (err, accountResults) => {
 
                 //Select Products
-                db.query(`SELECT products.id, products.name, products.description, products.image FROM cms.products;`, (err, productsResults) => {
+                db.query(`SELECT products.id, products.name, products.description, products.image, products.price FROM cms.products;`, (err, productsResults) => {
 
-                    //Select Levels
-                    db.query(`SELECT levels.id, levels.title FROM levels;`, (err, levelsResults) => {
-
-                        //Select Age Groups
-                        db.query(`SELECT age_groups.id, age_groups.title FROM age_groups;`, (err, ageResults) => {
-
-                            res.render('admin', {
-                                'title': 'Administration Panel | Landdrup Dans',
-                                homeResults,
-                                stylesResults,
-                                productsResults,
-                                levelsResults,
-                                ageResults,
-                            });
-                        });
-
+                    res.render('admin', {
+                        'title': 'Admin',
+                        homeResults,
+                        accountResults,
+                        productsResults
                     });
-
                 });
 
             });
+
         });
 
 

@@ -1,0 +1,17 @@
+<form action="/admin/user/opret" method="POST" enctype="multipart/form-data" id="update_create">
+    <label for="username" id="username">Username</label>
+    <br>
+    <input type="text" name="username">
+    <br>
+    <label for="password">Password</label>
+    <br>
+    <input type="text" id="password" name="password">
+    <br>
+    <label for="roles_id" id="roles_id">Rolle</label>
+    <br>
+    <input type="text" name="roles_id" id="roles_id">
+    <br>
+    <button type="submit">+ Opret</button>
+</form>
+
+<% include ./partials/footer %>

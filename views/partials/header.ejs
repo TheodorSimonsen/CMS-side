@@ -1,17 +1,21 @@
 <header>
-    <div id="header-logo"><img src="" alt="logo"></div>
-    <div id="login_logout">
-		<% if (login === false) { %>
-			<a href="/login">Log Ind</a>
-		<% } else { %>
-			<a href="/auth/logout">Log ud</a>
-		<% } %>
-	</div>
-    <nav>
+    <div id="header-logo"><a href="/"><img src="/uploads/ACTUALPNG-logo.png" height="100" alt="logo"></a></div>
+
+    <nav id="role-nav">
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/produkt">Products</a></li>
-            <li><a href="/admin">Admin</a></li>
+            <li><a href="/" class="navlink"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="/produkt" class="navlink"><i class="fas fa-store"></i> Products</a></li>
+            <li><a href="/admin" class="navlink"><i class="fas fa-tools"></i> Admin</a></li>
+            <li><a href="/profile" class="navlink"><i class="fas fa-user-alt"></i> Profile</a></li>
         </ul>
     </nav>
+    <div id="login_logout">
+        <% if (login === false) { %>
+        <a href="/login" class="login">Log Ind</a>
+        <% } else { %>
+        <a href="/shopping-cart" class="shoppingcart"><i class="fas fa-shopping-cart"></i> Shopping Cart</a>
+        <a href="/auth/logout" class="logout">Log ud</a>
+
+        <% } %>
+    </div>
 </header>

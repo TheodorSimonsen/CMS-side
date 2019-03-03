@@ -1,0 +1,32 @@
+<% include partials/head %>
+<% include partials/header %>
+
+<h1>
+    <%= home.title %>
+</h1>
+
+<a href="/produkt"><i class="fas fa-arrow-left"></i> Tilbage</a>
+
+<div class="content_box">
+    <% products.forEach(result => { %>
+    <section>
+        <img src="../uploads/<%= result.image %>" alt="<%= result.id %> Image">
+        <div class="content_box_content">
+            <h2>
+                <%= result.name %>
+            </h2>
+            <h3>
+                € <%= result.price %>.00
+            </h3>
+            <p>
+                <%= result.description %>
+            </p>
+            <button>Bestil her</button>
+        </div>
+    </section>
+
+    <% }); %>
+</div>
+
+<% include partials/footer %>
+<% include partials/after-footer %>

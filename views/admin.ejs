@@ -1,20 +1,27 @@
-<% include ./partials/head %>
-<a href="/">Home</a>
+<% include partials/head %>
+<% include partials/header %>
 <main id="admin_panel">
 
     <section class="admin-box">
         <h1>Produkter</h1>
-        <a href="/admin/produkt/opret">+</a>
+        <button><a href="/admin/produkt/opret" class="admin-add" title="Create Product"><i class="fas fa-plus"></i> Add</a></button>
         <% productsResults.forEach(productsResult => { %>
         <div class="admin-box-selection">
-            <h4><%= productsResult.name %></h4>
-            <p><%= productsResult.description %></p>
+            <h4>
+                <%= productsResult.name %>
+            </h4>
+            <p>
+                <%= productsResult.description %>
+            </p>
             <img src="./uploads/<%= productsResult.image %>" height="200" alt="">
+
+            <p>
+                € <%= productsResult.price %>
+            </p>
             <a href="/admin/produkt/slet-tjek/<%= productsResult.id %>"><i class="far fa-trash-alt"></i></a>
             &nbsp;
             <a href="/admin/produkt/rediger/<%= productsResult.id %>"><i class="fas fa-pencil-alt"></i></a>
         </div>
-        <hr class="groups_hr">
         <% }); %>
     </section>
 
@@ -25,16 +32,30 @@
             <h4>
                 <%= homeResult.title %>
             </h4>
-        </div>
-        <div class="admin-box-selection">
             <h4>
                 <%= homeResult.text %>
             </h4>
+            <img src="/uploads/<%= homeResult.image %>">
+            <%= homeResult.id %><a href="/admin/home/rediger/<%= homeResult.id %>"><i class="fas fa-pencil-alt"></i></a>
         </div>
-        <div class="admin-box-selection"> <img src="/uploads/<%= homeResult.image %>"></div>
-        <div>
-            <%= homeResult.id %> <button><a href="/admin/home/rediger/<%= homeResult.id %>"><i class="fas fa-pencil-alt"></i></a></button></div>
-        <hr class="groups_hr">
+        <% }); %>
+    </section>
+
+    <section class="admin-box">
+        <h1>Users</h1>
+        <button><a href="/admin/user/opret" class="admin-add" title="Create Account"><i class="fas fa-plus"></i> Add</a></button>
+        <% accountResults.forEach(accountResult => { %>
+        <div class="admin-box-selection">
+            <h4>
+                <%= accountResult.username %>
+            </h4>
+            <h4>
+                <%= accountResult.password %>
+            </h4>
+            <%= accountResult.id %>
+            <a href="/admin/user/rediger/<%= accountResult.id %>"><i class="fas fa-pencil-alt"></i></a>
+            <a href="/admin/user/slet-tjek/<%= accountResult.id %>"><i class="far fa-trash-alt"></i></a>
+        </div>
         <% }); %>
     </section>
 

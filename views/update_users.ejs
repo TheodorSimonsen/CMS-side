@@ -1,0 +1,41 @@
+<form action="/admin/user/rediger/<%= mainResults[0].id %>" class="patchForm" enctype="multipart/form-data" id="update_create">
+    <input type="hidden" name="id" value="<%= mainResults[0].id %>">
+
+    <label for="name">Titel</label>
+    <br>
+    <input type="text" name="username" value="<%= mainResults[0].username %>" id="username">
+    <br>
+    <label for="password">Password</label>
+    <br>
+    <input type="text" name="password" id="password" value="<%= mainResults[0].password %>">
+    <br>
+    <label for="roles_id">Rolle</label>
+    <br>
+    <input type="text" name="roles_id" id="roles_id" value="<%= mainResults[0].roles_id %>">
+    <button type="submit">Rediger</button>
+</form>
+
+<script>
+    const form = document.querySelector('.patchForm');
+    form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        console.log(this.id.value);
+        fetch(`/admin/user/rediger/${this.id.value}`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: form.username.value,
+                    password: form.password.value,
+                    roles_id: form.roles_id.value,
+                })
+            })
+            .then(response => {
+                if (response.status === 200) {
+                    window.location.href = '/admin';
+                }
+            });
+    });
+</script>
+<% include ./partials/footer %>

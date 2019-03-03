@@ -31,6 +31,7 @@ module.exports = function (app) {
 		if (!req.files || !req.files.photo) {
 			return next(`File not found (${__filename}:29:5)`);
 		}
+		
 		const file = req.files.photo;
 		const renamedFilename = `${Date.now()}_${file.name}`;
 		console.log(renamedFilename);
@@ -38,7 +39,7 @@ module.exports = function (app) {
 			if (err) return next(`${err} at fs.readFile (${__filename}:35:5)`);
 			fs.writeFile(`./public/uploads/${renamedFilename}`, data, err => {
 				if (err) return next(`${err} at fs.writeFile (${__filename}:37:7)`);
-				db.query('INSERT INTO photos SET name = ?', [renamedFilename], (err, result) => {
+				db.query('INSERT INTO cms.photos SET name = ?', [renamedFilename], (err, result) => {
 					if (err) return next(`${err} at db.query (${__filename}:39:9)`);
 					db.query('UPDATE profiles SET photos_id = ? WHERE users_id = ?', [result.insertId, req.session.user], (err, result) => {
 						if (err) return next(`${err} at db.query (${__filename}:41:11)`);
