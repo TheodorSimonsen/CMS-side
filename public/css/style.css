@@ -32,7 +32,7 @@ header #login_logout .shoppingcart:hover {
     color: #4285F4;
 }
 
-header .login {
+header .header-login {
     background-color: #4CAF50;
     padding:7px 13px 8px 13px;
     color:white;
@@ -47,7 +47,7 @@ header .login {
     opacity: 0.8;
   }
 
-header .logout {
+header .header-logout {
     background-color: rgb(255, 27, 10);
     padding:7px 13px 8px 13px;
     color:white;
@@ -194,6 +194,28 @@ header nav ul li a:hover {
 }
 
 /*=== PRODUKT SLUT ===*/
+
+/*=== ENKELT PRODUKT START ===*/
+
+.product-back {
+    background-color: #4285F4;
+    padding: 10px 13px;
+    text-align: center;
+    color:white;
+    text-decoration:none;
+}
+
+
+
+/*=== ENKELT PRODUKT SLUT ===*/
+
+/*=== LOGIN FORM START ===*/
+
+.login .errorMessage {
+    color: #ff1f1f;
+}
+
+/*=== LOGIN FORM SLUT ===*/
 
 /*=== ADMIN START ===*/
 

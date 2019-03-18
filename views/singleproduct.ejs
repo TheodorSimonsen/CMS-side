@@ -5,12 +5,12 @@
     <%= home.title %>
 </h1>
 
-<a href="/produkt"><i class="fas fa-arrow-left"></i> Tilbage</a>
+<a href="/produkt" class="product-back"><i class="fas fa-arrow-left"></i> Tilbage</a>
 
-<div class="content_box">
+<div class="singleproduct-content_box">
     <% products.forEach(result => { %>
     <section>
-        <img src="../uploads/<%= result.image %>" alt="<%= result.id %> Image">
+        <img src="../uploads/<%= result.image %>" alt="<%= result.id %> Image" class="single-product-image">
         <div class="content_box_content">
             <h2>
                 <%= result.name %>

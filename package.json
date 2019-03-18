@@ -1,5 +1,5 @@
 {
-  "name": "cms",
+  "name": "theodor-simonsen",
   "version": "0.1.0",
   "description": "kodebase for TheodorSimonsen",
   "main": "server.js",
@@ -9,7 +9,8 @@
     "dev": "run-script-os",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "set DEBUG:=cms & nodemon -r dotenv/config server.js dotenv_config_path=./.env",
-    "start:linux": "DEBUG=cms nodemon -r dotenv/config server.js dotenv_config_path=./.env"
+    "start:linux": "DEBUG=cms nodemon -r dotenv/config server.js dotenv_config_path=./.env",
+    "debug": "node --inspect=5858 -r dotenv/config server.js dotenv_config_path=./.env server.js"
   },
   "repository": {
     "type": "git",

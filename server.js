@@ -2,7 +2,7 @@
 //===========================================================
 const express = require('express');
 const pjson = require('./package.json');
-const debug = require('debug')('TheodorSimonsen');
+const debug = require('debug')('theodor-simonsen');
 const port = process.env.PORT || 1239;
 
 // SERVER
